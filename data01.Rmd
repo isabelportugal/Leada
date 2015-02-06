@@ -1,0 +1,31 @@
+Problem 1: What was the average total time (in minutes) used by a bicycle in the data?
+
+
+```{r}
+bike <- read.csv("bike_trip_data.csv")
+durationDT <- data.frame((aggregate(bike$Duration~bike$Bike.., FUN=sum)))
+duration <- durationDT$bike.Duration
+mean(duration)/60
+``` 
+
+R: 4288.087 minutes
+
+
+Problem 2: What was the most popular day by trip frequency in this dataset?
+
+```{r}
+date <- bike$Start.Date
+fordate <- as.Date(date, format ="%m/%d/%y")
+sort(summary(as.factor(fordate)), decreasing=TRUE)
+```
+
+R: 2013-09-25
+
+
+Problem 3 (easier): Assuming there are 30 bikes per station, find what date the bikes FIRST need to be rebalanced. As in, there are 0 bikes at a terminal for a customer to rent. Do this ignoring "Start.Date" and "End.Date" columns.
+
+```{r}
+
+
+
+``` 
